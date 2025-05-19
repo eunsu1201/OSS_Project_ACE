@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- 타이틀 -->
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACE"
+        android:textSize="50sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+    <!-- 태그라인 -->
+    <TextView
+        android:id="@+id/tvTagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accounting is the language of a company!"
+        android:textSize="20sp"
+        android:textColor="#888888"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/tvAppTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"/>
+
+    <!-- 로고 이미지 -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/ace_main_logo"
+        app:layout_constraintTop_toBottomOf="@id/tvTagline"
+        app:layout_constraintBottom_toTopOf="@id/btnConcept"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- 버튼 1 -->
+    <Button
+        android:id="@+id/btnConcept"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="개념 학습"
+        android:textSize="19sp"
+        android:textColor="#000000"
+        android:backgroundTint="#DDDDDD"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnQuiz"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 버튼 2 -->
+    <Button
+        android:id="@+id/btnQuiz"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="퀴즈"
+        android:textSize="19sp"
+        android:textColor="#000000"
+        android:backgroundTint="#DDDDDD"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnMyCompany"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 버튼 3 -->
+    <Button
+        android:id="@+id/btnMyCompany"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="나만의 기업 만들기"
+        android:textSize="19sp"
+        android:textColor="#000000"
+        android:backgroundTint="#DDDDDD"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="32dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
