@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,15 +38,42 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     }
 
     static class CardViewHolder extends RecyclerView.ViewHolder {
+        private final TextView tvCardTitle;
         private final TextView tvCardContent;
+        private final ImageView imgCard;
 
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvCardTitle = itemView.findViewById(R.id.tvCardTitle);
             tvCardContent = itemView.findViewById(R.id.tvCardContent);
+            imgCard = itemView.findViewById(R.id.imgCard);
         }
 
         public void bind(CardItem item) {
+            tvCardTitle.setText(item.getTitle());
             tvCardContent.setText(item.getContent());
+
+            if ("재무상태표와 손익계산서의 관계".equals(item.getTitle())) {
+                imgCard.setVisibility(View.VISIBLE);
+                imgCard.setImageResource(R.drawable.financial_statement);
+            } else {
+                imgCard.setVisibility(View.GONE);
+            }
+
+            if ("거래".equals(item.getTitle()) && item.getContent().contains("일상&회계의 거래")) {
+                imgCard.setVisibility(View.VISIBLE);
+                imgCard.setImageResource(R.drawable.transaction);
+            } else {
+                imgCard.setVisibility(View.GONE);
+            }
+
+            if ("결산의 절차".equals(item.getTitle())) {
+                imgCard.setVisibility(View.VISIBLE);
+                imgCard.setImageResource(R.drawable.closing);
+            } else {
+                imgCard.setVisibility(View.GONE);
+            }
+
         }
     }
 }
