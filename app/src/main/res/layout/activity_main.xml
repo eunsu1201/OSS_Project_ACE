@@ -73,17 +73,17 @@
         android:textColor="#000000"
         android:backgroundTint="#DDDDDD"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/btnMyCompany"
+        app:layout_constraintBottom_toTopOf="@id/btnPuzzle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="16dp"/>
 
     <!-- 버튼 3 -->
     <Button
-        android:id="@+id/btnMyCompany"
+        android:id="@+id/btnPuzzle"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:text="나만의 기업 만들기"
+        android:text="재무제표 퍼즐"
         android:textSize="19sp"
         android:textColor="#000000"
         android:backgroundTint="#DDDDDD"
@@ -91,6 +91,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginBottom="32dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

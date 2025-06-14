@@ -32,5 +32,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button btnPuzzle = findViewById(R.id.btnPuzzle);
+        btnPuzzle.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PuzzleSelectActivity.class);
+            startActivity(intent);
+        });
+
+
+
     }
 }

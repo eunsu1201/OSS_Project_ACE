@@ -1,11 +1,11 @@
 package com.example.application_ace;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -16,11 +16,8 @@ import java.util.List;
 public class QuizActivity extends AppCompatActivity {
 
     private TextView tvQuizNumber, tvQuestion, tvExplanation;
-    private Button btnO, btnX, btnPrev, btnNext, btnCheck;
+    private Button btnO, btnX, btnPrev, btnNext, btnCheck, btnFinish;
     private CardView cardExplanation;
-
-    private Button btnFinish;
-
 
     private List<QuizItem> quizList;
     private int currentIndex = 0;
@@ -44,7 +41,6 @@ public class QuizActivity extends AppCompatActivity {
         btnCheck = findViewById(R.id.btnCheck);
         btnFinish = findViewById(R.id.btnFinish);
 
-
         quizList = getQuizList();
         updateQuiz();
 
@@ -60,9 +56,8 @@ public class QuizActivity extends AppCompatActivity {
             Intent intent = new Intent(QuizActivity.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
-            finish(); // 현재 QuizActivity 종료
+            finish();
         });
-
 
         btnNext.setOnClickListener(v -> {
             if (currentIndex < quizList.size() - 1) {
@@ -92,34 +87,25 @@ public class QuizActivity extends AppCompatActivity {
         } else {
             cardExplanation.setVisibility(View.GONE);
         }
-        btnFinish.setVisibility(currentIndex == quizList.size() - 1 ? View.VISIBLE : View.GONE);
 
+        // 버튼 가시성 제어
+        if (currentIndex == quizList.size() - 1) {
+            btnNext.setVisibility(View.GONE);
+            btnFinish.setVisibility(View.VISIBLE);
+        } else {
+            btnNext.setVisibility(View.VISIBLE);
+            btnFinish.setVisibility(View.GONE);
+        }
     }
 
     private void checkAnswer(boolean userChoice) {
         boolean correct = quizList.get(currentIndex).getAnswer();
         if (userChoice == correct) {
-            showFeedback("정답입니다!");
+            Toast.makeText(this, "정답입니다!", Toast.LENGTH_SHORT).show();
         } else {
-            showFeedback("오답입니다!");
+            Toast.makeText(this, "오답입니다!", Toast.LENGTH_SHORT).show();
         }
     }
-
-    private void showFeedback(String message) {
-        TextView tv = new TextView(this);
-        tv.setText(message);
-        tv.setTextSize(20);
-        tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        tv.setPadding(40, 40, 40, 40);
-
-        new androidx.appcompat.app.AlertDialog.Builder(this)
-                .setView(tv)
-                .setPositiveButton("확인", null)
-                .show();
-    }
-
-
-
 
     private List<QuizItem> getQuizList() {
         return Arrays.asList(

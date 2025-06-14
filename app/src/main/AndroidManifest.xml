@@ -19,6 +19,12 @@
 
         <activity android:name=".QuizActivity"/>
 
+        <activity android:name=".PuzzleSelectActivity" />
+
+        <activity android:name=".PuzzleBalanceActivity" />
+
+        <activity android:name=".PuzzleIncomeActivity" />
+        
         <activity
             android:name=".MainActivity"
             android:exported="true">
